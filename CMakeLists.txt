@@ -20,4 +20,16 @@ target_include_directories(meshmonk_registration PUBLIC ${EIGEN3_INCLUDE_DIR} ${
 target_link_libraries(meshmonk_registration OpenMeshCore OpenMeshTools)
 
 
-# target_link_libraries(write_text opencv_imgcodecs opencv_core opencv_imgproc)
+
+add_executable(meshmonk_registration_ssm meshmonk_registration_ssm.cpp meshmonk.cpp ${SRCS})
+target_include_directories(meshmonk_registration_ssm PUBLIC src vendor)
+target_include_directories(meshmonk_registration_ssm PUBLIC ${EIGEN3_INCLUDE_DIR} ${OPENMESH_INCLUDE_DIRS})
+target_link_libraries(meshmonk_registration_ssm OpenMeshCore OpenMeshTools)
+
+
+
+add_executable(meshmonk_registration_bfm meshmonk_registration_bfm.cpp meshmonk.cpp ${SRCS})
+target_include_directories(meshmonk_registration_bfm PUBLIC src vendor)
+target_include_directories(meshmonk_registration_bfm PUBLIC ${EIGEN3_INCLUDE_DIR} ${OPENMESH_INCLUDE_DIRS})
+target_link_libraries(meshmonk_registration_bfm OpenMeshCore OpenMeshTools)
+

@@ -69,12 +69,46 @@ int main(int argc, char *argv[])
 ////    */
     //# Parameters
     //## Pyramid
-    const size_t numIterations = 60;
+    // BFM NICP
+    // const size_t numIterations = 5;
+    // const size_t numRigidIterations = 20;
+    // const size_t numPyramidLayers = 5;
+    // const float downsampleFloatStart = 85;
+    // const float downsampleTargetStart = 0;
+    // const float downsampleFloatEnd =75;
+    // const float downsampleTargetEnd = 0;
+
+    // //## Correspondences
+    // const bool correspondencesSymmetric = false;
+    // const size_t correspondencesNumNeighbours = 5;
+
+    // //## Inliers
+    // const float inlierKappa = 4.0f;
+    // const bool inlierUseOrientation = false;
+
+    // //## Transformation
+    // const float transformSigma = 3.0f;
+    // const size_t transformNumViscousIterationsStart = 55;
+    // const size_t transformNumViscousIterationsEnd = 2;
+    // const size_t transformNumElasticIterationsStart = 56;
+    // const size_t transformNumElasticIterationsEnd = 3;
+
+    // const float transformSigma = 3.0f;
+    // const size_t transformNumViscousIterationsStart = 55;
+    // const size_t transformNumViscousIterationsEnd = 2;
+    // const size_t transformNumElasticIterationsStart = 56;
+    // const size_t transformNumElasticIterationsEnd = 3;
+
+
+    // SSM NICP
+
+
+    const size_t numIterations = 40;
     const size_t numRigidIterations = 20;
-    const size_t numPyramidLayers = 1;
-    const float downsampleFloatStart = 0;
+    const size_t numPyramidLayers = 2;
+    const float downsampleFloatStart = 10;
     const float downsampleTargetStart = 0;
-    const float downsampleFloatEnd = 0;
+    const float downsampleFloatEnd =0;
     const float downsampleTargetEnd = 0;
 
     //## Correspondences
@@ -82,7 +116,7 @@ int main(int argc, char *argv[])
     const size_t correspondencesNumNeighbours = 5;
 
     //## Inliers
-    const float inlierKappa = 4.0f;
+    const float inlierKappa = 10.0f;
     const bool inlierUseOrientation = false;
 
     //## Transformation
@@ -92,8 +126,10 @@ int main(int argc, char *argv[])
     const size_t transformNumElasticIterationsStart = 56;
     const size_t transformNumElasticIterationsEnd = 3;
 
+    
+    
     Mat4Float transformationMatrix;
-    // //# Rigid registration
+    // // //# Rigid registration
     meshmonk::rigid_registration(floatingFeatures, targetFeatures,  floatingFaces, targetFaces,
                        floatingFlags, targetFlags, transformationMatrix, numRigidIterations,
                        true, 5,
