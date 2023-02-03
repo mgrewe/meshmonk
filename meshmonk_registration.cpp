@@ -27,8 +27,8 @@ int main(int argc, char *argv[])
     */
     //# IO variables
 
-    if (argc != 4){
-        std::cout << "usage: example floating target result" << std::endl;
+    if (argc != 6){
+        std::cout << "usage: example floating target result nRigid nNonRigid" << std::endl;
         return -1;
     }
     //# Peter's Matlab Data
