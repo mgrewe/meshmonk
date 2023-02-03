@@ -94,10 +94,12 @@ int main(int argc, char *argv[])
 
     Mat4Float transformationMatrix;
     // //# Rigid registration
-    meshmonk::rigid_registration(floatingFeatures, targetFeatures,  floatingFaces, targetFaces,
-                       floatingFlags, targetFlags, transformationMatrix, numRigidIterations,
-                       true, 5,
-                       0.99, false,inlierKappa, true, false);
+    if (numRigidIterations){
+        meshmonk::rigid_registration(floatingFeatures, targetFeatures,  floatingFaces, targetFaces,
+                        floatingFlags, targetFlags, transformationMatrix, numRigidIterations,
+                        true, 5,
+                        0.99, false,inlierKappa, true, false);
+    }
 
     //DEBUG
     std::cout << " -- Floating Features --\n" << floatingFeatures.topRows(10) << std::endl;
@@ -189,18 +191,22 @@ int main(int argc, char *argv[])
 //    std::cout << "floatingFlagsArray: " << floatingFlagsArray << std::endl;
 //    std::cout << "targetFlagsArray: " << targetFlagsArray << std::endl;
     //END DEBUG
-    meshmonk::pyramid_registration(floatingFeatures, targetFeatures,
-                                floatingFaces, targetFaces,
-                                floatingFlags, targetFlags,
-                                numIterations, numPyramidLayers,
-                                downsampleFloatStart, downsampleTargetStart,
-                                downsampleFloatEnd, downsampleTargetEnd,
-                                correspondencesSymmetric, correspondencesNumNeighbours,
-                                0.99f, false,
-                                inlierKappa, inlierUseOrientation,
-                                transformSigma,
-                                transformNumViscousIterationsStart, transformNumViscousIterationsEnd,
-                                transformNumElasticIterationsStart, transformNumElasticIterationsEnd);
+
+    if (numIterations){
+        meshmonk::pyramid_registration(floatingFeatures, targetFeatures,
+                                    floatingFaces, targetFaces,
+                                    floatingFlags, targetFlags,
+                                    numIterations, numPyramidLayers,
+                                    downsampleFloatStart, downsampleTargetStart,
+                                    downsampleFloatEnd, downsampleTargetEnd,
+                                    correspondencesSymmetric, correspondencesNumNeighbours,
+                                    0.99f, false,
+                                    inlierKappa, inlierUseOrientation,
+                                    transformSigma,
+                                    transformNumViscousIterationsStart, transformNumViscousIterationsEnd,
+                                    transformNumElasticIterationsStart, transformNumElasticIterationsEnd);
+
+    }
     
 //    meshmonk::nonrigid_registration_mex(floatingFeaturesArray, targetFeaturesArray,
 //                                3, 3,
