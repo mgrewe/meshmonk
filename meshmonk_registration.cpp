@@ -69,8 +69,8 @@ int main(int argc, char *argv[])
 ////    */
     //# Parameters
     //## Pyramid
-    const size_t numIterations = 60;
-    const size_t numRigidIterations = 20;
+    const size_t numIterations = std::stoul(argv[4]);
+    const size_t numRigidIterations = std::stoul(argv[5]);
     const size_t numPyramidLayers = 1;
     const float downsampleFloatStart = 0;
     const float downsampleTargetStart = 0;
